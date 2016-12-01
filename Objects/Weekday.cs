@@ -12,22 +12,29 @@ namespace Weekday.Objects
 		{"Sunday", "Saturday", "Friday", "Thursday", "Wednesday", "Tuesday", "Monday"};
 		public static string GetDayOfWeek(int year, int month, int day)
 		{
-			DateTime targetDay = new DateTime(year, month, day);
-			int daySpan = 0;
-			int dateComparison = DateTime.Compare(_startDay, targetDay);
-			if (dateComparison < 0)
+			try
 			{
-				daySpan = Math.Abs(Convert.ToInt32(Math.Floor((targetDay - _startDay).TotalDays)));
-				return Days[daySpan % 7];
+				DateTime targetDay = new DateTime(year, month, day);
+				int daySpan = 0;
+				int dateComparison = DateTime.Compare(_startDay, targetDay);
+				if (dateComparison < 0)
+				{
+					daySpan = Math.Abs(Convert.ToInt32(Math.Floor((targetDay - _startDay).TotalDays)));
+					return Days[daySpan % 7];
+				}
+				else if (dateComparison > 0)
+				{
+					daySpan = Math.Abs(Convert.ToInt32(Math.Floor((_startDay - targetDay).TotalDays)));
+					return reverseDays[daySpan % 7];
+				}
+				else
+				{
+					return "Sunday";
+				}
 			}
-			else if (dateComparison > 0)
+			catch
 			{
-				daySpan = Math.Abs(Convert.ToInt32(Math.Floor((_startDay - targetDay).TotalDays)));
-				return reverseDays[daySpan % 7];
-			}
-			else
-			{
-				return "Sunday";
+				return "not a valid day";
 			}
 		}
 	}
