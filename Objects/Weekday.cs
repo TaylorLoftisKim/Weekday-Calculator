@@ -6,14 +6,10 @@ namespace Weekday.Objects
 	public class Day
 	{
 		private static DateTime _startDay = new DateTime(2015, 11, 22);
-		private static Dictionary<int, string> _forwardDays = new Dictionary<int, string>()
-		{
-			[0]="Sunday",[1]="Monday",[2]="Tuesday",[3]="Wednesday",[4]="Thursday",[5]="Friday",[6]="Saturday"
-		};
-		private static Dictionary<int, string> _backwardDays = new Dictionary<int, string>()
-		{
-			[0]="Sunday",[1]="Saturday",[2]="Friday",[3]="Thursday",[4]="Wednesday",[5]="Tuesday",[6]="Monday"
-		};
+		private static string[] Days = new string[]
+		{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+		private static string[] reverseDays = new string[]
+		{"Sunday", "Saturday", "Friday", "Thursday", "Wednesday", "Tuesday", "Monday"};
 		public static string GetDayOfWeek(int year, int month, int day)
 		{
 			DateTime targetDay = new DateTime(year, month, day);
@@ -22,12 +18,12 @@ namespace Weekday.Objects
 			if (dateComparison < 0)
 			{
 				daySpan = Math.Abs(Convert.ToInt32(Math.Floor((targetDay - _startDay).TotalDays)));
-				return _forwardDays[daySpan % 7];
+				return Days[daySpan % 7];
 			}
 			else if (dateComparison > 0)
 			{
 				daySpan = Math.Abs(Convert.ToInt32(Math.Floor((_startDay - targetDay).TotalDays)));
-				return _backwardDays[daySpan % 7];
+				return reverseDays[daySpan % 7];
 			}
 			else
 			{
