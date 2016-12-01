@@ -1,8 +1,8 @@
 using Nancy;
 using System.Collections.Generic;
-using NameSpace.Objects;
+using Weekday.Objects;
 
-namespace NameSpace
+namespace Weekday
 {
 	public class HomeModule : NancyModule
 	{

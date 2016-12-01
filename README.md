@@ -3,28 +3,19 @@
 
 _{Brief Details}, {Date}_
 
-_By Levi Bibo_
+_By Levi Bibo and Taylor Loftis-Kim_
 
 ##Description
 
 _{Extended Details}_
 
-_[Link to site.](https://levibibo.github.io/{site-name})_
+
 
 ##Specifications
 
-*{Specs}
-
-##Support and contact details
-
-Check out my GitHub account: [Levi Bibo.](https://www.github.com/levibibo)
-
-##Technologies used
-
-_This site was built using {technologies}_
-
-##License
-
-_Created under an MIT license._
-
-_Copyright (c) {2016} Levi Bibo_
+| BDD                                                          | Input      | Output   |
+|--------------------------------------------------------------|------------|----------|
+| Program will return the day of the week of our starting day. | 11/27/2016 | Sunday   |
+| Program will return a date of a day in this current year.    | 12/25/2016 | Sunday   |
+| Program will return any day in the future.                   | 10/31/2020 | Saturday |
+| Program will return any day in the past.                     | 7/4/1776   | Thursday |
